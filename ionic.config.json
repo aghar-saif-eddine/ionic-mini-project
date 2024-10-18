@@ -1,0 +1,7 @@
+{
+  "name": "MiniProject",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
