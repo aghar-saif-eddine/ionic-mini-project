@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="profile-container">
+    <!-- Large Icon in the center -->
+    <ion-icon name="person-circle-outline" class="profile-icon"></ion-icon>
+
+    <!-- Display Email Below the Icon -->
+    <p class="profile-email">Email: {{ email }}</p>
+
+    <!-- Button to redirect to the Home Page -->
+    <ion-button expand="full" routerLink="/home" color="primary">
+      Go to Home
+    </ion-button>
+  </div>
+</ion-content>

@@ -51,17 +51,6 @@ export class SignupPage implements OnInit {
     return this.ionicForm.controls;
   }
 
-  // async signUpWithGoogle(){
-  //   const loading = await this.loadingController.create();
-  //   // await loading.present();
-
-  //   const user = await this.authService.GoogleAuth().then((re)=>{
-  //     console.log(re);
-
-  //     // this.router.navigate(['/home'])
-  //   })
-  // }
-
   async signUP() {
     const loading = await this.loadingController.create();
     await loading.present();
