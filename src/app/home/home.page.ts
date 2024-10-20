@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { User } from 'firebase/auth';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {User} from 'firebase/auth';
 import {AuthServiceService} from "../authetication.service";
 
 @Component({
@@ -8,28 +8,29 @@ import {AuthServiceService} from "../authetication.service";
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit{
-  email :any
-
-  constructor(private authService:AuthServiceService,private router: Router) {
+export class HomePage implements OnInit {
+  cars: any[] = [];
+  constructor(private authService: AuthServiceService, private router: Router) {
 
   }
+
   ngOnInit(): void {
-
-    this.authService.getProfile().then(user => {
-      this.email = user?.email;
-      console.log(user?.email);
-    }).catch(error => {
-      console.error('Error getting user profile:', error);
+    this.authService.getCars().subscribe(cars => {
+      this.cars = cars;
+      console.log(this.cars);  // Check if the data is coming through
     });
-
   }
 
+  deleteCar(carId: string) {
+    this.authService.deleteCar(carId);
+  }
 
+  editCar(car: any) {
+    this.authService.editCar(car);
+  }
 
-
-  signOut(){
-    this.authService.signOut().then(() =>{
+  signOut() {
+    this.authService.signOut().then(() => {
       this.router.navigate(['/landing'])
     })
   }
